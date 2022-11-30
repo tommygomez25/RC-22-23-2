@@ -66,5 +66,25 @@
 7) **/ip address add address = 172.16.Y1.254/24 interface = ether2**
 8) No tux 3 -> ** route add default gw 172.16.Y0.254**
 9) No tux 2 e 4-> **route add default gw 172.16.Y1.254**
-10) Ir ao GTK do tux4 (que é onde está ligado o **MicroTIK**) e adicionar rota para o **router** <br />
-**/ip route add dst-address=172.16.Y0.0/24 gw 172.1.Y9/24**
+10) Ir ao GTK do tux4 (que é onde está ligado o **MicroTIK**) e adicionar rota para o **router**
+**/ip route add dst-address=172.16.Y0.0/24 gateway = 172.16.Y1.253**
+
+11) Dar ping do tux 3 para todas as interfaces
+
+12) No tux 2 -> **echo 0 > /proc/sys/net/ipv4/conf/eth0/accept_redirects**
+ **echo 0 > /proc/sys/net/ipv4/conf/all/accept_redirects**
+
+13) **route delete -net 172.16.Y0.0/24 gw 172.16.1.253**
+> **NOTA** : Agora o tux2 precisa de ir ao router para comunicar com o tux3, visto que já não tem a gateway do tux4 <br />
+traceroute 172.16.Y0.1 (tux3) -> 3 hops <br />
+Depois de adicionar a rota outra vez já so faz 2 hops
+
+14) Para desativar NAT -> no GTK ->**/ip firewall nat disable 0**
+<br />Conseguimos verificar que depois de dar disable ao NAT , já não há forma de passar de IP privado para IP público, pelo que o ping não funciona
+
+## Experience 5
+
+1) Em todos os tuxs correr o comando -> **nano /etc/resolve.conf** e verificar que tem lá o server
+> **NOTA** : Ao dar ping a google.com não funciona porque o router não tem uma rota para qualquer outro IP além dos que adicionamos
+2) **/ip route add dst-address = 0.0.0.0/0 gateway = 172.16.2.254** <br />
+> **NOTA** : Agora já é possível comunicar com qualquer outro ip
