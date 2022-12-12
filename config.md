@@ -75,7 +75,7 @@
 12) No tux 2 -> **echo 0 > /proc/sys/net/ipv4/conf/eth0/accept_redirects**
 13) No tux 2 -> **echo 0 > /proc/sys/net/ipv4/conf/all/accept_redirects**
 
-13) **route delete -net 172.16.Y0.0/24 gw 172.16.Y1.253**
+13) **route delete -net 172.16.Y0.0/24 gw 172.16.Y1.253** (não é preciso para demonstração)
 > **NOTA** : Agora o tux2 precisa de ir ao router para comunicar com o tux3, visto que já não tem a gateway do tux4 <br />
 traceroute 172.16.Y0.1 (tux3) -> 3 hops <br />
 Depois de adicionar a rota outra vez já so faz 2 hops
