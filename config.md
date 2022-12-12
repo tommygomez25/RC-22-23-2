@@ -80,7 +80,7 @@
 traceroute 172.16.Y0.1 (tux3) -> 3 hops <br />
 Depois de adicionar a rota outra vez já so faz 2 hops
 
-14) Para desativar NAT -> no GTK ->**/ip firewall nat disable 0**
+14) Para desativar NAT -> no GTK ->**/ip firewall nat disable 0** (não é preciso para demonstração)
 <br />Conseguimos verificar que depois de dar disable ao NAT , já não há forma de passar de IP privado para IP público, pelo que o ping não funciona
 
 ## Experience 5
