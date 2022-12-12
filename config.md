@@ -85,7 +85,7 @@ Depois de adicionar a rota outra vez já so faz 2 hops
 
 ## Experience 5
 
-1) Em todos os tuxs correr o comando -> **nano /etc/resolve.conf** e verificar que tem lá o server
+1) Em todos os tuxs correr o comando -> **nano /etc/resolv.conf** e verificar que tem lá o server
 > **NOTA** : Ao dar ping a google.com não funciona porque o router não tem uma rota para qualquer outro IP além dos que adicionamos
 2) **/ip route add dst-address = 0.0.0.0/0 gateway=172.16.Z.254** (Z na I321 = 1, Z na I320 = 2) <br />
 > **NOTA** : Agora já é possível comunicar com qualquer outro ip
