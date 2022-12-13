@@ -63,11 +63,12 @@
 4) **/interface bridge port add bridge=bridgeY1 interface=ether20**
 5) Pôr o tux4 como router default do tux3 e pôr o router como router default do tux2 e tux4 
 6) **Para configurar o router** -> tirar cabo da consola do switch e ligar ao **router MTIK**
-7) **/ip address add address=172.16.Z.Y9/24 interface=ether1** (Z na I321 = 1, Z na I320 = 2)
-8) **/ip address add address=172.16.Y1.254/24 interface=ether2**
-9) No tux 3 -> **route add default gw 172.16.Y0.254**
-10) No tux 2 e 4-> **route add default gw 172.16.Y1.254**
-11) Ir ao GTK do tux4 (que é onde está ligado o **MicroTIK**) e adicionar rota para o **router**: 
+7) **system reset-configuration** no **GTK** 
+8) **/ip address add address=172.16.Z.Y9/24 interface=ether1** (Z na I321 = 1, Z na I320 = 2)
+9) **/ip address add address=172.16.Y1.254/24 interface=ether2**
+10) No tux 3 -> **route add default gw 172.16.Y0.254**
+11) No tux 2 e 4-> **route add default gw 172.16.Y1.254**
+12) Ir ao GTK do tux4 (que é onde está ligado o **MicroTIK**) e adicionar rota para o **router**: 
 **/ip route add dst-address=172.16.Y0.0/24 gateway=172.16.Y1.253**
 
 11) Dar ping do tux 3 para todas as interfaces
